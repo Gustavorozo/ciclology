@@ -3,30 +3,30 @@
 	require_once "../../clases/Conexion.php";
 	$c= new conectar();
 	$conexion=$c->conexion();
-	$sql="SELECT art.nombre,
-					art.descripcion,
-					art.cantidad,
-					art.precio,
+	$sql="SELECT art.Nombre,
+					art.Talla,
+					art.IVA,
+					art.precio_Base,
 					img.ruta,
 					cat.nombreCategoria,
-					art.id_producto
-		  from articulos as art 
-		  inner join imagenes as img
-		  on art.id_imagen=img.id_imagen
-		  inner join categorias as cat
-		  on art.id_categoria=cat.id_categoria";
+					art.idProducto
+		  from Producto as art 
+		  inner join foto as img
+		  on art.idFoto=img.idFoto
+		  inner join Categorias as cat
+		  on art.idCategoria=cat.id_categoria";
 	$result=mysqli_query($conexion,$sql);
 
  ?>
 
 <table class="table table-hover table-condensed table-bordered" style="text-align: center;">
-	<caption><label>Articulos</label></caption>
+	<caption><label>Producto</label></caption>
 	<tr>
 		<td>Nombre</td>
-		<td>Descripcion</td>
+		<td>Talla</td>
 		<td>Cantidad</td>
-		<td>Precio</td>
-		<td>Imagen</td>
+		<td>Precio_Base</td>
+		<td>Foto</td>
 		<td>Categoria</td>
 		<td>Editar</td>
 		<td>Eliminar</td>
@@ -48,12 +48,12 @@
 		</td>
 		<td><?php echo $ver[5]; ?></td>
 		<td>
-			<span  data-toggle="modal" data-target="#abremodalUpdateArticulo" class="btn btn-warning btn-xs" onclick="agregaDatosArticulo('<?php echo $ver[6] ?>')">
+			<span  data-toggle="modal" data-target="#abremodalUpdateProducto" class="btn btn-warning btn-xs" onclick="agregaDatosProducto('<?php echo $ver[6] ?>')">
 				<span class="glyphicon glyphicon-pencil"></span>
 			</span>
 		</td>
 		<td>
-			<span class="btn btn-danger btn-xs" onclick="eliminaArticulo('<?php echo $ver[6] ?>')">
+			<span class="btn btn-danger btn-xs" onclick="eliminaProducto('<?php echo $ver[6] ?>')">
 				<span class="glyphicon glyphicon-remove"></span>
 			</span>
 		</td>

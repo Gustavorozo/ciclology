@@ -34,7 +34,7 @@
             <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false"><span class="glyphicon glyphicon-list-alt"></span> Administrar Articulos <span class="caret"></span></a>
             <ul class="dropdown-menu">
               <li><a href="categorias.php">Categorias</a></li>
-              <li><a href="articulos.php">Articulos</a></li>
+              <li><a href="Producto.php">Producto</a></li>
                 <li><a href="Color.php">Color</a></li>
             </ul>
           </li>
@@ -52,7 +52,7 @@
 
            <li><a href="clientes.php"><span class="glyphicon glyphicon-user"></span> Clientes</a>
           </li>
-          <li><a href="ventas.php"><span class="glyphicon glyphicon-usd"></span> Vender Articulo</a>
+          <li><a href="ventas.php"><span class="glyphicon glyphicon-usd"></span> Vender Producto</a>
           </li>
           
           <li class="dropdown" >

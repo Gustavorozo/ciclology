@@ -9,12 +9,12 @@
 			$c= new conectar();
 			$conexion=$c->conexion();
 
-			$sql="INSERT into categorias(id_usuario,
+			$sql="INSERT into categorias(
 										nombreCategoria,
 										fechaCaptura)
 						values ('$datos[0]',
-								'$datos[1]',
-								'$datos[2]')";
+								'$datos[1]'
+								)";
 
 			return mysqli_query($conexion,$sql);
 		}

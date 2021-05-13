@@ -1,38 +1,39 @@
 
 
 <?php 
-	class articulos{
-		public function agregaImagen($datos){
+	class Producto{
+		public function agregaFoto($datos){
 			$c=new conectar();
 			$conexion=$c->conexion();
 
 			$fecha=date('Y-m-d');
 
-			$sql="INSERT into imagenes (id_categoria,
+			$sql="INSERT into Foto (idColor,
 										nombre,
 										ruta,
 										fechaSubida)
 							values ('$datos[0]',
 									'$datos[1]',
-									'$datos[2]',
+							        '$datos[2]',
 									'$fecha')";
 			$result=mysqli_query($conexion,$sql);
 
 			return mysqli_insert_id($conexion);
 		}
-		public function insertaArticulo($datos){
+		public function insertaProducto($datos){
 			$c=new conectar();
 			$conexion=$c->conexion();
 
 			$fecha=date('Y-m-d');
 
-			$sql="INSERT into articulos (id_categoria,
-										id_imagen,
+			$sql="INSERT into Producto (idProducto,
+										idFoto,
 										id_usuario,
-										nombre,
-										descripcion,
-										cantidad,
-										precio,
+                                        idMarca,
+										Nombre,
+										Talla,
+										IVA,
+										Precio_Base,
 										fechaCaptura) 
 							values ('$datos[0]',
 									'$datos[1]',
@@ -41,67 +42,68 @@
 									'$datos[4]',
 									'$datos[5]',
 									'$datos[6]',
+							        '$datos[8]',
 									'$fecha')";
 			return mysqli_query($conexion,$sql);
 		}
 
-		public function obtenDatosArticulo($idarticulo){
+		public function obtenDatosProducto($idProducto){
 			$c=new conectar();
 			$conexion=$c->conexion();
 
-			$sql="SELECT id_producto, 
-						id_categoria, 
-						nombre,
-						descripcion,
-						cantidad,
-						precio 
-				from articulos 
-				where id_producto='$idarticulo'";
+			$sql="SELECT idProducto, 
+						idCategoria, 
+						Nombre,
+						Talla,
+						IVA,
+						Precio_Base 
+				from Producto 
+				where idProducto='$idProducto'";
 			$result=mysqli_query($conexion,$sql);
 
 			$ver=mysqli_fetch_row($result);
 
 			$datos=array(
-					"id_producto" => $ver[0],
-					"id_categoria" => $ver[1],
-					"nombre" => $ver[2],
-					"descripcion" => $ver[3],
-					"cantidad" => $ver[4],
-					"precio" => $ver[5]
+					"idProducto" => $ver[0],
+					"idCategoria" => $ver[1],
+					"Nombre" => $ver[2],
+					"Talla" => $ver[3],
+					"IVA" => $ver[4],
+					"Precio_Base" => $ver[5]
 						);
 
 			return $datos;
 		}
 
-		public function actualizaArticulo($datos){
+		public function actualizaProducto($datos){
 			$c=new conectar();
 			$conexion=$c->conexion();
 
-			$sql="UPDATE articulos set id_categoria='$datos[1]', 
-										nombre='$datos[2]',
-										descripcion='$datos[3]',
-										cantidad='$datos[4]',
-										precio='$datos[5]'
-						where id_producto='$datos[0]'";
+			$sql="UPDATE Producto set idCategoria='$datos[1]', 
+										Nombre='$datos[2]',
+										Talla='$datos[3]',
+										IVA='$datos[4]',
+										Precio_Base='$datos[5]'
+						where idProducto='$datos[0]'";
 
 			return mysqli_query($conexion,$sql);
 		}
 
-		public function eliminaArticulo($idarticulo){
+		public function eliminaProducto($idProducto){
 			$c=new conectar();
 			$conexion=$c->conexion();
 
-			$idimagen=self::obtenIdImg($idarticulo);
+			$idFoto=self::obtenIdImg($idProducto);
 
-			$sql="DELETE from articulos 
-					where id_producto='$idarticulo'";
+			$sql="DELETE from Producto 
+					where idProducto='$idProducto'";
 			$result=mysqli_query($conexion,$sql);
 
 			if($result){
-				$ruta=self::obtenRutaImagen($idimagen);
+				$ruta=self::obtenRutaImagen($idFoto);
 
-				$sql="DELETE from imagenes 
-						where id_imagen='$idimagen'";
+				$sql="DELETE from Foto 
+						where idFoto='$idFoto'";
 				$result=mysqli_query($conexion,$sql);
 					if($result){
 						if(unlink($ruta)){
@@ -115,9 +117,9 @@
 			$c= new conectar();
 			$conexion=$c->conexion();
 
-			$sql="SELECT id_imagen 
-					from articulos 
-					where id_producto='$idProducto'";
+			$sql="SELECT idFoto
+					from Producto
+					where idProducto='$idProducto'";
 			$result=mysqli_query($conexion,$sql);
 
 			return mysqli_fetch_row($result)[0];
@@ -128,8 +130,8 @@
 			$conexion=$c->conexion();
 
 			$sql="SELECT ruta 
-					from imagenes 
-					where id_imagen='$idImg'";
+					from Foto 
+					where idFoto='$idImg'";
 
 			$result=mysqli_query($conexion,$sql);
 
