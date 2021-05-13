@@ -8,14 +8,16 @@
 			$fecha=date('Y-m-d');
 
 			$sql="INSERT into usuarios (nombre,
-								apellido,
 								email,
+                                Cedula,
+                                telefono,
 								password,
 								fechaCaptura)
 						values ('$datos[0]',
 								'$datos[1]',
 								'$datos[2]',
-								'$datos[3]',
+						        '$datos[3]',
+						        '$datos[4]',
 								'$fecha')";
 			return mysqli_query($conexion,$sql);
 		}
@@ -61,8 +63,9 @@
 
 			$sql="SELECT id_usuario,
 							nombre,
-							apellido,
-							email
+							email,
+                            Cedula,
+                            telefono
 					from usuarios 
 					where id_usuario='$idusuario'";
 			$result=mysqli_query($conexion,$sql);
@@ -72,8 +75,9 @@
 			$datos=array(
 						'id_usuario' => $ver[0],
 							'nombre' => $ver[1],
-							'apellido' => $ver[2],
-							'email' => $ver[3]
+							'email' => $ver[2],
+                            'Cedula' => $ver[3],
+                            'telefono' => $ver[4],
 						);
 
 			return $datos;
@@ -84,8 +88,7 @@
 			$conexion=$c->conexion();
 
 			$sql="UPDATE usuarios set nombre='$datos[1]',
-									apellido='$datos[2]',
-									email='$datos[3]'
+									email='$datos[2]'
 						where id_usuario='$datos[0]'";
 			return mysqli_query($conexion,$sql);	
 		}

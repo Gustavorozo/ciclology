@@ -34,10 +34,12 @@
 						<form id="frmRegistro">
 							<label>Nombre</label>
 							<input type="text" class="form-control input-sm" name="nombre" id="nombre">
-							<label>Apellido</label>
-							<input type="text" class="form-control input-sm" name="apellido" id="apellido">
 							<label>Usuario</label>
 							<input type="text" class="form-control input-sm" name="usuario" id="usuario">
+                            <label>Cedula</label>
+                            <input type="number" class="form-control input-sm" name="Cedula" id="Cedula">
+                            <label>Telefono</label>
+                            <input type="number" class="form-control input-sm" name="telefono" id="telefono">
 							<label>Password</label>
 							<input type="text" class="form-control input-sm" name="password" id="password">
 							<p></p>

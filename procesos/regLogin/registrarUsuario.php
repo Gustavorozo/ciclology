@@ -8,8 +8,9 @@
 	$pass=sha1($_POST['password']);
 	$datos=array(
 		$_POST['nombre'],
-		$_POST['apellido'],
 		$_POST['usuario'],
+        $_POST['Cedula'],
+        $_POST['telefono'],
 		$pass
 				);
 

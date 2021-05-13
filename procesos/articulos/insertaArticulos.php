@@ -6,8 +6,8 @@
 
 	$obj= new articulos();
 
-	$datos=array();
-	
+$datos=array();
+
 	$nombreImg=$_FILES['imagen']['name'];
 	$rutaAlmacenamiento=$_FILES['imagen']['tmp_name'];
 	$carpeta='../../archivos/';

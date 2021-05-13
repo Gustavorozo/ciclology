@@ -16,10 +16,12 @@ if(isset($_SESSION['usuario']) and $_SESSION['usuario']=='admin'){
 					<form id="frmRegistro">
 						<label>Nombre</label>
 						<input type="text" class="form-control input-sm" name="nombre" id="nombre">
-						<label>Apellido</label>
-						<input type="text" class="form-control input-sm" name="apellido" id="apellido">
 						<label>Usuario</label>
 						<input type="text" class="form-control input-sm" name="usuario" id="usuario">
+                        <label>Cedula</label>
+                        <input type="number" class="form-control input-sm" name="Cedula" id="Cedula">
+                        <label>Telefono</label>
+                        <input type="number" class="form-control input-sm" name="telefono" id="telefono">
 						<label>Password</label>
 						<input type="text" class="form-control input-sm" name="password" id="password">
 						<p></p>
@@ -50,10 +52,12 @@ if(isset($_SESSION['usuario']) and $_SESSION['usuario']=='admin'){
 							<input type="text" hidden="" id="idUsuario" name="idUsuario">
 							<label>Nombre</label>
 							<input type="text" class="form-control input-sm" name="nombreU" id="nombreU">
-							<label>Apellido</label>
-							<input type="text" class="form-control input-sm" name="apellidoU" id="apellidoU">
 							<label>Usuario</label>
 							<input type="text" class="form-control input-sm" name="usuarioU" id="usuarioU">
+                            <label>Cedula</label>
+                            <input type="text" class="form-control input-sm" name="CedulaU" id="CedulaU">
+                            <label>Telefono</label>
+                            <input type="text" class="form-control input-sm" name="telefonoU" id="telefonoU">
 
 						</form>
 					</div>
@@ -80,8 +84,9 @@ if(isset($_SESSION['usuario']) and $_SESSION['usuario']=='admin'){
 
 					$('#idUsuario').val(dato['id_usuario']);
 					$('#nombreU').val(dato['nombre']);
-					$('#apellidoU').val(dato['apellido']);
 					$('#usuarioU').val(dato['email']);
+                    $('#CedulaU').val(dato['Cedula']);
+                    $('#telefonoU').val(dato['telefono']);
 				}
 			});
 		}

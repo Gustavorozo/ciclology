@@ -6,8 +6,9 @@
 
 	$sql="SELECT id_usuario,
 					nombre,
-					apellido,
-					email
+					email,
+                    Cedula,
+                    telefono
 			from usuarios";
 	$result=mysqli_query($conexion,$sql);
 
@@ -18,8 +19,9 @@
 	<caption><label>Usuarios :)</label></caption>
 	<tr>
 		<td>Nombre</td>
-		<td>Apellido</td>
 		<td>Usuario</td>
+        <td>Cedula</td>
+        <td>telefono</td>
 		<td>Editar</td>
 		<td>Eliminar</td>
 	</tr>
@@ -30,6 +32,7 @@
 		<td><?php echo $ver[1]; ?></td>
 		<td><?php echo $ver[2]; ?></td>
 		<td><?php echo $ver[3]; ?></td>
+        <td><?php echo $ver[4]; ?></td>
 		<td>
 			<span data-toggle="modal" data-target="#actualizaUsuarioModal" class="btn btn-warning btn-xs" onclick="agregaDatosUsuario('<?php echo $ver[0]; ?>')">
 				<span class="glyphicon glyphicon-pencil"></span>

@@ -8,7 +8,8 @@
 	$datos=array(
 			$_POST['idUsuario'],  
 		    $_POST['nombreU'] , 
-		    $_POST['apellidoU'],  
+		    $_POST['CedulaU'],
+            $_POST['telefonoU'],
 		    $_POST['usuarioU']
 				);  
 	echo $obj->actualizaUsuario($datos);
