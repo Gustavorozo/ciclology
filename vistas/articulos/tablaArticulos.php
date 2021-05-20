@@ -9,18 +9,18 @@
 					art.precio,
 					img.ruta,
 					cat.nombreCategoria,
-                    cat.nombreMarca,
-                    cat.nombreColor,
+                    mar.nombreMarca,
+                    col.nombreColor,
 					art.id_producto
 		  from articulos as art 
 		  inner join imagenes as img
 		  on art.id_imagen=img.id_imagen
 		  inner join categorias as cat
 		  on art.id_categoria=cat.id_categoria
-		  inner join Marca as cat
-		  on art.id_marca=cat.id_marca
-		  inner join Color as cat
-		  on art.id_color=cat.id_color";
+		  inner join Marca as mar
+		  on art.id_marca=mar.id_marca
+		  inner join Color as col
+		  on art.id_color=col.id_color";
 
 	$result=mysqli_query($conexion,$sql);
 
@@ -37,7 +37,6 @@
 		<td>Categoria</td>
         <td>Marca</td>
         <td>Color</td>
-        <td>Categoria</td>
 		<td>Editar</td>
 		<td>Eliminar</td>
 	</tr>

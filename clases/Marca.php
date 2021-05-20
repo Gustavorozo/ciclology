@@ -1,3 +1,6 @@
+
+
+
 <?php
 
 class Marca{
@@ -6,9 +9,8 @@ class Marca{
         $c= new conectar();
         $conexion=$c->conexion();
 
-
-        $sql="INSERT into Marca(nombreMarca,
-										id_usuario,
+        $sql="INSERT into Marca(id_usuario,
+										nombreMarca,
 										fechaCaptura)
 						values ('$datos[0]',
 								'$datos[1]',
@@ -26,7 +28,7 @@ class Marca{
         echo mysqli_query($conexion,$sql);
     }
 
-    public function eliminarMarca($idmarca){
+    public function eliminaMarca($idmarca){
         $c= new conectar();
         $conexion=$c->conexion();
         $sql="DELETE from Marca 

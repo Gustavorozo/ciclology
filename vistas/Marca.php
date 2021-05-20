@@ -19,7 +19,7 @@ if(isset($_SESSION['usuario'])){
             <div class="col-sm-4">
                 <form id="frmMarca">
                     <label>Marca</label>
-                    <input type="text" class="form-control input-sm" name="marca" id="marca">
+                    <input type="text" class="form-control input-sm" name="Marca" id="Marca">
                     <p></p>
                     <span class="btn btn-primary" id="btnAgregaMarca">Agregar</span>
                 </form>
@@ -42,7 +42,7 @@ if(isset($_SESSION['usuario'])){
                 </div>
                 <div class="modal-body">
                     <form id="frmMarcaU">
-                        <input type="text" hidden="" id="idmarca" name="idmarca">
+                        <input type="text" hidden="" id="idmarca" name="idMarca">
                         <label>Marca</label>
                         <input type="text" id="MarcaU" name="MarcaU" class="form-control input-sm">
                     </form>
@@ -117,20 +117,20 @@ if(isset($_SESSION['usuario'])){
     </script>
 
     <script type="text/javascript">
-        function agregaDato(idMarca,Marca){
-            $('#idmarca').val(idMarca);
+        function agregaDato(idmarca,Marca){
+            $('#idmarca').val(idmarca);
             $('#MarcaU').val(Marca);
         }
 
-        function eliminarMarca(idmarca){
-            alertify.confirm('¿Desea eliminar esta marca?', function(){
+        function eliminaMarca(idmarca){
+            alertify.confirm('¿Desea eliminar esta Marca?', function(){
                 $.ajax({
                     type:"POST",
                     data:"idmarca=" + idmarca,
                     url:"../procesos/Marca/eliminarMarca.php",
                     success:function(r){
                         if(r==1){
-                            $('#tablaMarcaLoad').load("Marca/tablaMarca.php");
+                            $('#tablaMarcaLoad').load(" Marca/tablaMarca.php");
                             alertify.success("Eliminado con exito!!");
                         }else{
                             alertify.error("No se pudo eliminar :(");
