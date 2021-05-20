@@ -13,7 +13,7 @@ session_start();
 			$_POST['direccion'],
 			$_POST['email'],
 			$_POST['telefono'],
-			$_POST['rfc']
+			$_POST['cedula']
 				);
 
 	echo $obj->agregaCliente($datos);

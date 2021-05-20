@@ -1,16 +1,14 @@
-
-
-
 <?php
 
-class Color{
+class Marca{
 
-    public function agregaColor($datos){
+    public function agregaMarca($datos){
         $c= new conectar();
         $conexion=$c->conexion();
 
-        $sql="INSERT into Color(id_usuario,
-										nombreColor,
+
+        $sql="INSERT into Marca(nombreMarca,
+										id_usuario,
 										fechaCaptura)
 						values ('$datos[0]',
 								'$datos[1]',
@@ -19,20 +17,20 @@ class Color{
         return mysqli_query($conexion,$sql);
     }
 
-    public function actualizaColor($datos){
+    public function actualizaMarca($datos){
         $c= new conectar();
         $conexion=$c->conexion();
 
-        $sql="UPDATE Color set nombreColor='$datos[1]'
-								where id_color='$datos[0]'";
+        $sql="UPDATE Marca set nombreMarca='$datos[1]'
+								where id_marca='$datos[0]'";
         echo mysqli_query($conexion,$sql);
     }
 
-    public function eliminaColor($idcolor){
+    public function eliminarMarca($idmarca){
         $c= new conectar();
         $conexion=$c->conexion();
-        $sql="DELETE from Color 
-					where id_color='$idcolor'";
+        $sql="DELETE from Marca 
+					where id_marca='$idmarca'";
         return mysqli_query($conexion,$sql);
     }
 

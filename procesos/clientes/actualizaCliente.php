@@ -14,7 +14,7 @@ session_start();
 			$_POST['direccionU'],
 			$_POST['emailU'],
 			$_POST['telefonoU'],
-			$_POST['rfcU']
+			$_POST['cedulaU']
 				);
 
 	echo $obj->actualizaCliente($datos);

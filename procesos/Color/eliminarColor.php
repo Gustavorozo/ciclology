@@ -1,12 +1,9 @@
 <?php 
+	require_once "../../clases/Conexion.php";
+	require_once "../../clases/Color.php";
+	$id=$_POST['idcolor'];
 
-
-require_once "../../clases/Conexion.php";
-require_once "../../clases/Color.php";
-$idart=$_POST['idColor'];
-
-	$obj=new Color();
-
-	echo $obj->eliminaColor($idart);
+	$obj= new Color();
+	echo $obj->eliminaColor($id);
 
  ?>

@@ -27,8 +27,8 @@ if(isset($_SESSION['usuario'])){
 						<input type="text" class="form-control input-sm" id="email" name="email">
 						<label>Telefono</label>
 						<input type="text" class="form-control input-sm" id="telefono" name="telefono">
-						<label>RFC</label>
-						<input type="text" class="form-control input-sm" id="rfc" name="rfc">
+						<label>Cedula</label>
+						<input type="text" class="form-control input-sm" id="cedula" name="cedula">
 						<p></p>
 						<span class="btn btn-primary" id="btnAgregarCliente">Agregar</span>
 					</form>
@@ -63,8 +63,8 @@ if(isset($_SESSION['usuario'])){
 							<input type="text" class="form-control input-sm" id="emailU" name="emailU">
 							<label>Telefono</label>
 							<input type="text" class="form-control input-sm" id="telefonoU" name="telefonoU">
-							<label>RFC</label>
-							<input type="text" class="form-control input-sm" id="rfcU" name="rfcU">
+							<label>Cedula</label>
+							<input type="text" class="form-control input-sm" id="cedulaU" name="cedulaU">
 						</form>
 					</div>
 					<div class="modal-footer">
@@ -93,7 +93,7 @@ if(isset($_SESSION['usuario'])){
 					$('#direccionU').val(dato['direccion']);
 					$('#emailU').val(dato['email']);
 					$('#telefonoU').val(dato['telefono']);
-					$('#rfcU').val(dato['rfc']);
+					$('#cedulaU').val(dato['cedula']);
 
 				}
 			});

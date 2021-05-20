@@ -7,7 +7,7 @@
 	$categoria=$_POST['categoria'];
 
 	$datos=array(
-
+		$idusuario,
 		$categoria,
 		$fecha
 				);

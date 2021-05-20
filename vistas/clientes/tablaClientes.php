@@ -11,7 +11,7 @@
 				direccion,
 				email,
 				telefono,
-				rfc 
+				cedula 
 		from clientes";
 	$result=mysqli_query($conexion,$sql);
  ?>
@@ -25,7 +25,7 @@
 	 		<td>Direccion</td>
 	 		<td>Email</td>
 	 		<td>Telefono</td>
-	 		<td>RFC</td>
+	 		<td>Cedula</td>
 	 		<td>Editar</td>
 	 		<td>Eliminar</td>
 	 	</tr>

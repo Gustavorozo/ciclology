@@ -80,7 +80,7 @@ if(isset($_SESSION['usuario'])){
 					url:"../procesos/categorias/agregaCategoria.php",
 					success:function(r){
 						if(r==1){
-					//esta linea nos permite limpiar el formulario al insetar un registro
+					//esta linea nos permite limpiar el formulario al insertar un registro
 					$('#frmCategorias')[0].reset();
 
 					$('#tablaCategoriaLoad').load("categorias/tablaCategorias.php");

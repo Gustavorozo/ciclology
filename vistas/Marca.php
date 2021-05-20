@@ -8,24 +8,24 @@ if(isset($_SESSION['usuario'])){
     <!DOCTYPE html>
     <html>
     <head>
-        <title>Color</title>
+        <title>Marca</title>
         <?php require_once "menu.php"; ?>
     </head>
     <body>
 
     <div class="container">
-        <h1>Color</h1>
+        <h1>Marca</h1>
         <div class="row">
             <div class="col-sm-4">
-                <form id="frmColor">
-                    <label>Color</label>
-                    <input type="text" class="form-control input-sm" name="Color" id="Color">
+                <form id="frmMarca">
+                    <label>Marca</label>
+                    <input type="text" class="form-control input-sm" name="marca" id="marca">
                     <p></p>
-                    <span class="btn btn-primary" id="btnAgregaColor">Agregar</span>
+                    <span class="btn btn-primary" id="btnAgregaMarca">Agregar</span>
                 </form>
             </div>
             <div class="col-sm-6">
-                <div id="tablaColorLoad"></div>
+                <div id="tablaMarcaLoad"></div>
             </div>
         </div>
     </div>
@@ -33,24 +33,24 @@ if(isset($_SESSION['usuario'])){
     <!-- Button trigger modal -->
 
     <!-- Modal -->
-    <div class="modal fade" id="actualizaColor" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+    <div class="modal fade" id="actualizaMarca" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
         <div class="modal-dialog modal-sm" role="document">
             <div class="modal-content">
                 <div class="modal-header">
                     <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
-                    <h4 class="modal-title" id="myModalLabel">Actualiza Color</h4>
+                    <h4 class="modal-title" id="myModalLabel">Actualiza Marca</h4>
                 </div>
                 <div class="modal-body">
-                    <form id="frmColorU">
-                        <input type="text" hidden="" id="idcolor" name="idcolor">
-                        <label>Color</label>
-                        <input type="text" id="ColorU" name="ColorU" class="form-control input-sm">
+                    <form id="frmMarcaU">
+                        <input type="text" hidden="" id="idmarca" name="idmarca">
+                        <label>Marca</label>
+                        <input type="text" id="MarcaU" name="MarcaU" class="form-control input-sm">
                     </form>
 
 
                 </div>
                 <div class="modal-footer">
-                    <button type="button" id="btnActualizaColor" class="btn btn-warning" data-dismiss="modal">Guardar</button>
+                    <button type="button" id="btnActualizaMarca" class="btn btn-warning" data-dismiss="modal">Guardar</button>
 
                 </div>
             </div>
@@ -62,31 +62,31 @@ if(isset($_SESSION['usuario'])){
     <script type="text/javascript">
         $(document).ready(function(){
 
-            $('#tablaColorLoad').load("Color/tablaColor.php");
+            $('#tablaMarcaLoad').load("Marca/tablaMarca.php");
 
-            $('#btnAgregaColor').click(function(){
+            $('#btnAgregaMarca').click(function(){
 
-                vacios=validarFormVacio('frmColor');
+                vacios=validarFormVacio('frmMarca');
 
                 if(vacios > 0){
                     alertify.alert("Debes llenar todos los campos!!");
                     return false;
                 }
 
-                datos=$('#frmColor').serialize();
+                datos=$('#frmMarca').serialize();
                 $.ajax({
                     type:"POST",
                     data:datos,
-                    url:"../procesos/Color/agregaColor.php",
+                    url:"../procesos/Marca/agregaMarca.php",
                     success:function(r){
                         if(r==1){
                             //esta linea nos permite limpiar el formulario al insertar un registro
-                            $('#frmColor')[0].reset();
+                            $('#frmMarca')[0].reset();
 
-                            $('#tablaColorLoad').load("Color/tablaColor.php");
-                            alertify.success("Color agregado con exito :D");
+                            $('#tablaMarcaLoad').load("Marca/tablaMarca.php");
+                            alertify.success("Marca agregada con exito :D");
                         }else{
-                            alertify.error("No se pudo agregar el Color");
+                            alertify.error("No se pudo agregar la Marca");
                         }
                     }
                 });
@@ -96,16 +96,16 @@ if(isset($_SESSION['usuario'])){
 
     <script type="text/javascript">
         $(document).ready(function(){
-            $('#btnActualizaColor').click(function(){
+            $('#btnActualizaMarca').click(function(){
 
-                datos=$('#frmColorU').serialize();
+                datos=$('#frmMarcaU').serialize();
                 $.ajax({
                     type:"POST",
                     data:datos,
-                    url:"../procesos/Color/actualizaColor.php",
+                    url:"../procesos/Marca/actualizaMarca.php",
                     success:function(r){
                         if(r==1){
-                            $('#tablaColorLoad').load("Color/tablaColor.php");
+                            $('#tablaMarcaLoad').load("Marca/tablaMarca.php");
                             alertify.success("Actualizado con exito :)");
                         }else{
                             alertify.error("no se pudo actaulizar :(");
@@ -117,20 +117,20 @@ if(isset($_SESSION['usuario'])){
     </script>
 
     <script type="text/javascript">
-        function agregaDato(idcolor,Color){
-            $('#idcolor').val(idcolor);
-            $('#ColorU').val(Color);
+        function agregaDato(idMarca,Marca){
+            $('#idmarca').val(idMarca);
+            $('#MarcaU').val(Marca);
         }
 
-        function eliminaColor(idcolor){
-            alertify.confirm('¿Desea eliminar este color?', function(){
+        function eliminarMarca(idmarca){
+            alertify.confirm('¿Desea eliminar esta marca?', function(){
                 $.ajax({
                     type:"POST",
-                    data:"idcolor=" + idcolor,
-                    url:"../procesos/Color/eliminarColor.php",
+                    data:"idmarca=" + idmarca,
+                    url:"../procesos/Marca/eliminarMarca.php",
                     success:function(r){
                         if(r==1){
-                            $('#tablaColorLoad').load(" Color/tablaColor.php");
+                            $('#tablaMarcaLoad').load("Marca/tablaMarca.php");
                             alertify.success("Eliminado con exito!!");
                         }else{
                             alertify.error("No se pudo eliminar :(");

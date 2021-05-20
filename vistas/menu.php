@@ -34,8 +34,9 @@
             <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false"><span class="glyphicon glyphicon-list-alt"></span> Administrar Articulos <span class="caret"></span></a>
             <ul class="dropdown-menu">
               <li><a href="categorias.php">Categorias</a></li>
-              <li><a href="Producto.php">Producto</a></li>
+              <li><a href="articulos.php">articulos</a></li>
                 <li><a href="Color.php">Color</a></li>
+                <li><a href="Marca.php">Marca</a></li>
             </ul>
           </li>
 
